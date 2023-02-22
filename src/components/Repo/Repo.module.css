@@ -1,0 +1,29 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--box-shadow);
+}
+
+.left {
+  display: flex;
+  gap: 32px;
+}
+
+.info,
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.right {
+  gap: 20px;
+}
+
+.textWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

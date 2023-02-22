@@ -1,0 +1,27 @@
+.text {
+  display: inline;
+  padding: 2px 0;
+}
+
+.black {
+  color: var(--black-color);
+}
+
+.grey {
+  color: var(--grey-color);
+}
+
+.lightGrey {
+  color: var(--light-grey-color);
+}
+
+.big {
+  font-size: 22px;
+  font-family: "DM Serif Display", sans-serif;
+  padding: 4px 0;
+}
+
+.medium {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}

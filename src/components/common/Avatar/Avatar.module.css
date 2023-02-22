@@ -1,0 +1,6 @@
+.image {
+  width: 128px;
+  height: 144px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
