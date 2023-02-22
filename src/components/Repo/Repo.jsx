@@ -3,25 +3,20 @@ import s from "./Repo.module.css";
 import avatarDefault from "src/assets/images/avatarDefault.png";
 import { memo } from "react";
 
+const BLANK_FIELD = "-";
+
+// cannot set here items by default since if the value is empty it's null
 export const Repo = memo(
-  ({
-    name = "-",
-    author = "-",
-    language = "-",
-    image = avatarDefault,
-    description = "-",
-    stars = 0,
-    watchers = 0,
-  }) => {
+  ({ name, author, language, image, description, stars, watchers }) => {
     return (
       <div className={s.content}>
         <div className={s.left}>
-          <Avatar src={image} alt="Authors image" />
+          <Avatar src={image || avatarDefault} alt="Authors image" />
           <div className={s.info}>
-            <Text size="big">{name}</Text>
-            <Text color="lightGrey">{author}</Text>
-            <Text color="lightGrey">{language}</Text>
-            <Text color="grey">{description}</Text>
+            <Text size="big">{name || BLANK_FIELD}</Text>
+            <Text color="lightGrey">{author || BLANK_FIELD}</Text>
+            <Text color="lightGrey">{language || BLANK_FIELD}</Text>
+            <Text color="grey">{description || BLANK_FIELD}</Text>
           </div>
         </div>
         <div className={s.right}>
