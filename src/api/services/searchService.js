@@ -1,8 +1,12 @@
 import { githubApiInstance } from "../config";
 
-const params = {};
+const params = {
+  per_page: 5,
+};
 
-export const getSearchRepos = () =>
-  githubApiInstance.get("search/repositories", {
-    params: { ...params },
+// I did not add 'react' as default argument since we need to handle '' as well
+export const getSearchRepos = (searchValue) => {
+  return githubApiInstance.get("search/repositories", {
+    params: { ...params, q: searchValue || "react" },
   });
+};
