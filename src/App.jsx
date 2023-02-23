@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Input, Pagination, Text, Button } from "./components/common";
+import { Input, Pagination, Text, Button, Spinner } from "./components/common";
 import { Repo } from "./components/Repo/Repo";
 import { fetchGetSearchRepos } from "./redux/reducers/searchSlice";
 import s from "./App.module.css";
@@ -35,7 +35,9 @@ export const App = () => {
         onChange={setSearchValue}
         placeholder="Search"
       />
-      {isLoading ? null : (
+      {isLoading ? (
+        <Spinner />
+      ) : (
         <>
           <div className={s.repos}>
             {content.items.map(

@@ -4,3 +4,4 @@ export { Text } from "./Text/Text";
 export { Icon } from "./Icon/Icon";
 export { Pagination } from "./Pagination/Pagination";
 export { Button } from "./Button/Button";
+export { Spinner } from "./Spinner/Spinner";

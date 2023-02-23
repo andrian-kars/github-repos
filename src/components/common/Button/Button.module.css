@@ -6,5 +6,5 @@
 
 .button:hover,
 .active {
-  border-color: #65b79a;
+  border-color: var(--green-color);
 }
