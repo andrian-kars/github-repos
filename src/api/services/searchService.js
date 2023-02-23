@@ -3,6 +3,7 @@ import { githubApiInstance } from "../config";
 
 const params = {
   per_page: REPOS_PER_PAGE,
+  sort: "stars",
 };
 
 // I did not add 'react' as default argument since we need to handle '' as well
