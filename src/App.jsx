@@ -22,7 +22,7 @@ export const App = () => {
   const debouncedHandleSearch = useCallback(
     debounce((value, page) => {
       dispatch(fetchGetSearchRepos(value, page));
-    }, 300),
+    }, 180),
     []
   );
 
