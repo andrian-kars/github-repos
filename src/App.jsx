@@ -19,16 +19,6 @@ export const App = () => {
     debouncedHandleSearch(searchValue, currPage);
   }, [searchValue, currPage]);
 
-  if (error)
-    return (
-      <div className={s.error}>
-        <Text size="big">An error occured. Try again</Text>
-        <Button onClick={() => debouncedHandleSearch(searchValue, currPage)}>
-          Reload
-        </Button>
-      </div>
-    );
-
   const debouncedHandleSearch = useCallback(
     debounce((value, page) => {
       dispatch(fetchGetSearchRepos(value, page));
@@ -40,6 +30,16 @@ export const App = () => {
     setSearchValue(value);
     setCurrPage(INITIAL_PAGE);
   }
+
+  if (error)
+    return (
+      <div className={s.error}>
+        <Text size="big">An error occured. Try again</Text>
+        <Button onClick={() => debouncedHandleSearch(searchValue, currPage)}>
+          Reload
+        </Button>
+      </div>
+    );
 
   return (
     <div className={s.content}>
