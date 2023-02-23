@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Input, Pagination, Text, Button, Spinner } from "./components/common";
 import { Repo } from "./components/Repo/Repo";
 import { fetchGetSearchRepos } from "./redux/reducers/searchSlice";
 import s from "./App.module.css";
+import debounce from "lodash.debounce";
 
 const INITIAL_PAGE = 1;
 
@@ -15,7 +16,7 @@ export const App = () => {
   const [currPage, setCurrPage] = useState(INITIAL_PAGE);
 
   useEffect(() => {
-    handleSearch();
+    debouncedHandleSearch();
   }, [searchValue, currPage]);
 
   if (error)
@@ -29,6 +30,7 @@ export const App = () => {
   function handleSearch() {
     dispatch(fetchGetSearchRepos(searchValue, currPage));
   }
+  const debouncedHandleSearch = useCallback(debounce(handleSearch, 300), []);
 
   function handleSearchValueChange(value) {
     setSearchValue(value);
