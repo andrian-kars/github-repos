@@ -5,16 +5,18 @@ import { Repo } from "./components/Repo/Repo";
 import { fetchGetSearchRepos } from "./redux/reducers/searchSlice";
 import s from "./App.module.css";
 
+const INITIAL_PAGE = 1;
+
 export const App = () => {
   const dispatch = useDispatch();
 
   const { content, isLoading, error } = useSelector((state) => state.search);
   const [searchValue, setSearchValue] = useState("");
-  const [currPage, setCurrPage] = useState(1);
+  const [currPage, setCurrPage] = useState(INITIAL_PAGE);
 
   useEffect(() => {
     handleSearch();
-  }, [searchValue]);
+  }, [searchValue, currPage]);
 
   if (error)
     return (
@@ -25,14 +27,19 @@ export const App = () => {
     );
 
   function handleSearch() {
-    dispatch(fetchGetSearchRepos(searchValue));
+    dispatch(fetchGetSearchRepos(searchValue, currPage));
+  }
+
+  function handleSearchValueChange(value) {
+    setSearchValue(value);
+    setCurrPage(INITIAL_PAGE);
   }
 
   return (
     <div className={s.content}>
       <Input
         value={searchValue}
-        onChange={setSearchValue}
+        onChange={handleSearchValueChange}
         placeholder="Search"
       />
       {isLoading ? (
