@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getSearchRepos } from "src/api/services/searchService";
+import { OPERATION_CANCELLED } from "src/constants";
 
 const initialState = {
   content: null,
@@ -21,6 +22,8 @@ export const searchSlice = createSlice({
     },
     setError: (state, action) => {
       const error = action.payload;
+
+      if (error === OPERATION_CANCELLED) return;
 
       state.error = error;
       state.isLoading = false;

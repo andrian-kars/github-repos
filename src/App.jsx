@@ -46,30 +46,36 @@ export const App = () => {
         <Spinner />
       ) : (
         <>
-          <div className={s.repos}>
-            {content.items.map(
-              ({
-                id,
-                name,
-                owner,
-                language,
-                description,
-                stargazers_count,
-                watchers_count,
-              }) => (
-                <Repo
-                  key={id}
-                  name={name}
-                  author={owner.login}
-                  image={owner.avatar_url}
-                  language={language}
-                  description={description}
-                  stars={stargazers_count}
-                  watchers={watchers_count}
-                />
-              )
-            )}
-          </div>
+          {content.items.length ? (
+            <div className={s.repos}>
+              {content.items.map(
+                ({
+                  id,
+                  name,
+                  owner,
+                  language,
+                  description,
+                  stargazers_count,
+                  watchers_count,
+                }) => (
+                  <Repo
+                    key={id}
+                    name={name}
+                    author={owner.login}
+                    image={owner.avatar_url}
+                    language={language}
+                    description={description}
+                    stars={stargazers_count}
+                    watchers={watchers_count}
+                  />
+                )
+              )}
+            </div>
+          ) : (
+            <div className={s.noItems}>
+              <Text size="big">No repository was found for your request</Text>
+            </div>
+          )}
           <Pagination
             currPage={currPage}
             setCurrPage={setCurrPage}
