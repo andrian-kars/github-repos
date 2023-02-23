@@ -10,7 +10,6 @@ export const Pagination = memo(({ currPage, setCurrPage, totalItems }) => {
   if (totalPages < 2) return null;
 
   let arrOfPages = [];
-  console.log(currPage, totalPages);
 
   // []
   if (currPage > 4) {
