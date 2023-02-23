@@ -13,6 +13,7 @@ export const searchSlice = createSlice({
   reducers: {
     setContent: (state, action) => {
       state.content = action.payload;
+      state.error = null;
       state.isLoading = false;
     },
     setLoading: (state, action) => {

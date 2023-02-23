@@ -3,11 +3,17 @@
   padding: 32px 50px;
 }
 
-.repos {
-  --gap: 36px;
-
+.repos,
+.content {
   display: flex;
   flex-direction: column;
-  gap: var(--gap);
-  margin-top: var(--gap);
+  gap: 36px;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
 }

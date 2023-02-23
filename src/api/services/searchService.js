@@ -1,7 +1,8 @@
+import { REPOS_PER_PAGE } from "src/constants";
 import { githubApiInstance } from "../config";
 
 const params = {
-  per_page: 3,
+  per_page: REPOS_PER_PAGE,
 };
 
 // I did not add 'react' as default argument since we need to handle '' as well

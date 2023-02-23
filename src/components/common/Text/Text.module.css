@@ -21,6 +21,12 @@
   padding: 4px 0;
 }
 
+.semiBig {
+  font-family: "DM Serif Display", sans-serif;
+  font-size: 20px;
+  padding: 3px 0;
+}
+
 .medium {
   font-size: 16px;
   font-family: "Open Sans", sans-serif;

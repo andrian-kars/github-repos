@@ -1,0 +1,10 @@
+.button {
+  border-bottom: solid 3px transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover,
+.active {
+  border-color: #65b79a;
+}

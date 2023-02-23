@@ -1,0 +1,16 @@
+.pagination {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.right {
+  position: absolute;
+  right: -60px;
+}
+
+.left {
+  position: absolute;
+  left: -95px;
+}
