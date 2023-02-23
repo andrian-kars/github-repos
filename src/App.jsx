@@ -16,21 +16,25 @@ export const App = () => {
   const [currPage, setCurrPage] = useState(INITIAL_PAGE);
 
   useEffect(() => {
-    debouncedHandleSearch();
+    debouncedHandleSearch(searchValue, currPage);
   }, [searchValue, currPage]);
 
   if (error)
     return (
       <div className={s.error}>
         <Text size="big">An error occured. Try again</Text>
-        <Button onClick={handleSearch}>Reload</Button>
+        <Button onClick={() => debouncedHandleSearch(searchValue, currPage)}>
+          Reload
+        </Button>
       </div>
     );
 
-  function handleSearch() {
-    dispatch(fetchGetSearchRepos(searchValue, currPage));
-  }
-  const debouncedHandleSearch = useCallback(debounce(handleSearch, 300), []);
+  const debouncedHandleSearch = useCallback(
+    debounce((value, page) => {
+      dispatch(fetchGetSearchRepos(value, page));
+    }, 300),
+    []
+  );
 
   function handleSearchValueChange(value) {
     setSearchValue(value);
