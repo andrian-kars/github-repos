@@ -11,6 +11,6 @@ How to run:
 
 - React
 - Redux (redux-toolkit)
-- axios
+- axios + cancelToken
 - React-hooks
 - css.modules
