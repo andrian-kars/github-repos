@@ -6,8 +6,8 @@ const params = {
 };
 
 // I did not add 'react' as default argument since we need to handle '' as well
-export const getSearchRepos = (searchValue) => {
+export const getSearchRepos = (searchValue, currPage = 1) => {
   return githubApiInstance.get("search/repositories", {
-    params: { ...params, q: searchValue || "react" },
+    params: { ...params, q: searchValue || "react", page: currPage },
   });
 };

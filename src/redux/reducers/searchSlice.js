@@ -29,15 +29,16 @@ export const searchSlice = createSlice({
   },
 });
 
-export const fetchGetSearchRepos = (searchValue) => async (dispatch) => {
-  try {
-    dispatch(searchSlice.actions.setLoading(true));
-    const fetchedSearchRepos = await getSearchRepos(searchValue);
-    dispatch(searchSlice.actions.setContent(fetchedSearchRepos.data));
-  } catch (e) {
-    dispatch(searchSlice.actions.setError(e.message));
-  }
-};
+export const fetchGetSearchRepos =
+  (searchValue, currPage) => async (dispatch) => {
+    try {
+      dispatch(searchSlice.actions.setLoading(true));
+      const fetchedSearchRepos = await getSearchRepos(searchValue, currPage);
+      dispatch(searchSlice.actions.setContent(fetchedSearchRepos.data));
+    } catch (e) {
+      dispatch(searchSlice.actions.setError(e.message));
+    }
+  };
 
 export const { setContent, setLoading, setError } = searchSlice.actions;
 export default searchSlice.reducer;

@@ -66,10 +66,6 @@ export const Pagination = memo(({ currPage, setCurrPage, totalItems }) => {
     arrOfPages.push(currPage + i);
   }
 
-  useEffect(() => {
-    return () => setCurrPage(1);
-  }, []);
-
   return (
     <div className={s.pagination}>
       {currPage !== 1 && (
